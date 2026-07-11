@@ -71,4 +71,34 @@ Console.WriteLine(stringBuilder.ToString().Length);
 Console.WriteLine($"Time taken for StringBuilder: {sw.ElapsedMilliseconds} ms");
 Console.WriteLine(initialString == stringBuilder.ToString());
 
+string? FindUserEmail(int userId)
+{
+    if (userId == 0)
+    {
+        return null;
+    }
+
+    return $"user{userId}@example.com";
+}
+
+string? userEmail = FindUserEmail(0);
+
+if (userEmail != null)
+{
+    Console.WriteLine(userEmail.Length);
+}
+else
+{
+    Console.WriteLine("No email found.");
+}
+
+int? maybeAge = null;
+Console.WriteLine(maybeAge ?? 0);
+
+Console.WriteLine(maybeAge.HasValue);
+
+maybeAge = 25;
+
+Console.WriteLine(maybeAge.HasValue);
+
 

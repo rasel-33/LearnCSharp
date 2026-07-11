@@ -3,7 +3,7 @@
 ## Current Position
 - **Stage:** A — C# Language Mastery
 - **Phase:** 1 — Core Language Foundations
-- **Topic:** Nullability — `null`, `int?`, nullable reference types (`?`, `!`, warnings) — up next
+- **Topic:** Operators, control flow, pattern matching in `switch` (modern style) — up next
 
 ---
 
@@ -13,6 +13,7 @@
 - 2026-07-11 — Phase 1: Value types vs reference types, stack vs heap, mutate-through-reference vs reassign-the-local-pointer distinction, "pass by value" applied to reference types, boxing/unboxing (concept only)
 - 2026-07-11 — Phase 1: Built-in types (int/long/double/decimal/bool/char), `int` vs `System.Int32`, `var` as compile-time inference (not dynamic typing), decimal vs double for money, implicit vs explicit conversion, `checked`/`unchecked` and silent integer overflow, never ignore compiler warnings
 - 2026-07-11 — Phase 1: String immutability (methods return new strings, don't mutate), `+=` concat vs `StringBuilder` perf (measured: ~37ms vs 0ms over 10k iterations), string `==` is value equality (overloaded) vs `ReferenceEquals`
+- 2026-07-11 — Phase 1: Nullability — `int?`/`Nullable<T>`, nullable reference types (`string?`), compiler static-analysis flow tracking, live `CS8602` warning read and fixed properly (not suppressed with `!`), `??` and `.HasValue`, PascalCase applies to local functions too
 
 ---
 
