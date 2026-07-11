@@ -1,7 +1,10 @@
-﻿using Phase1.Foundations;
+﻿// Program.cs
 
-Console.WriteLine("Shamim Ahammad Rasel");
-Console.WriteLine(DateTime.Now);
+using Phase1.Foundations;
 
-Greeter greeter = new Greeter("Hello, You are doing welll with ");
-Console.WriteLine(greeter.Greet("C#"));
+
+BankAccount original = new BankAccount(100);
+var copy = original; // copies the reference object
+copy.Balance = 500; // changes the actual object's balance
+Console.WriteLine(original.Balance); // 500
+Console.WriteLine(copy.Balance); // 500
