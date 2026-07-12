@@ -8,25 +8,24 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/home/rasel/.nuget/packages/": {}
+    "/home/technonext/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/rasel/projects/LearnC#/Phase1.Foundations/Phase1.Foundations.csproj",
+      "projectUniqueName": "/home/technonext/projects/LearnCSharp/Phase1.Foundations/Phase1.Foundations.csproj",
       "projectName": "Phase1.Foundations",
-      "projectPath": "/home/rasel/projects/LearnC#/Phase1.Foundations/Phase1.Foundations.csproj",
-      "packagesPath": "/home/rasel/.nuget/packages/",
-      "outputPath": "/home/rasel/projects/LearnC#/Phase1.Foundations/obj/",
+      "projectPath": "/home/technonext/projects/LearnCSharp/Phase1.Foundations/Phase1.Foundations.csproj",
+      "packagesPath": "/home/technonext/.nuget/packages/",
+      "outputPath": "/home/technonext/projects/LearnCSharp/Phase1.Foundations/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/rasel/.nuget/NuGet/NuGet.Config"
+        "/home/technonext/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "/usr/lib/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -66,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.109/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/var/snap/dotnet/common/dotnet/sdk/10.0.109/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

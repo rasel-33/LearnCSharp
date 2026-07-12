@@ -102,3 +102,20 @@ maybeAge = 25;
 Console.WriteLine(maybeAge.HasValue);
 
 
+string DescribeTemperature(int celsius) => celsius switch
+{
+    < 0 => "Freezing",
+    <= 15 => "Cold",
+    <= 25 => "Mild",
+    <= 35 => "Warm",
+    _ => "Hot"
+};
+
+
+Console.WriteLine(DescribeTemperature(-1));
+Console.WriteLine(DescribeTemperature(0));
+Console.WriteLine(DescribeTemperature(15));
+Console.WriteLine(DescribeTemperature(16));
+Console.WriteLine(DescribeTemperature(35));
+
+
