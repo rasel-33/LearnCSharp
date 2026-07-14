@@ -162,3 +162,19 @@ void Swap(ref int a, ref int b)
 
 Swap(ref x1, ref x2);
 Console.WriteLine($"After swap: x1 = {x1}, x2 = {x2}");
+
+void Send(string message, string channel = "Email", bool urgent = false)
+{
+    Console.WriteLine($"[{channel}] {(urgent ? "URGENT: " : "normal")} {message}");
+}
+
+Send("Hello, World!");
+Send("Hello, World!", "SMS");
+Send("Hello, World!", urgent: true);
+Send("Hello, World!", channel: "Push Notification", urgent: true);
+
+
+
+Describer describer = new Describer();
+Console.WriteLine(describer.Describe(42));
+Console.WriteLine(describer.Describe("Hello"));
