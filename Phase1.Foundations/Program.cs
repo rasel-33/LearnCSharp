@@ -119,3 +119,46 @@ Console.WriteLine(DescribeTemperature(16));
 Console.WriteLine(DescribeTemperature(35));
 
 
+bool TryDivide(int numerator, int denominator, out int result)
+{
+    if (denominator == 0)
+    {
+        result = 0;
+        return false;
+    }
+
+    result = numerator / denominator;
+    return true;
+}
+
+if (TryDivide(10, 2, out int divisionResult))
+{
+    Console.WriteLine($"Division successful: {divisionResult}");
+}
+else
+{
+    Console.WriteLine("Division by zero is not allowed.");
+}
+
+if (TryDivide(10, 0, out divisionResult))
+{
+    Console.WriteLine($"Division successful: {divisionResult}");
+}
+else
+{
+    Console.WriteLine("Division by zero is not allowed.");
+}
+
+int x1 = 5, x2 = 10;
+
+Console.WriteLine($"Before swap: x1 = {x1}, x2 = {x2}");
+
+void Swap(ref int a, ref int b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+Swap(ref x1, ref x2);
+Console.WriteLine($"After swap: x1 = {x1}, x2 = {x2}");
