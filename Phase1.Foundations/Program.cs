@@ -178,3 +178,29 @@ Send("Hello, World!", channel: "Push Notification", urgent: true);
 Describer describer = new Describer();
 Console.WriteLine(describer.Describe(42));
 Console.WriteLine(describer.Describe("Hello"));
+
+// Array
+int[] numbers = {10, 20, 30, 40, 50};
+Console.WriteLine($"Length of numbers array: {numbers.Length}");
+foreach (var number in numbers)
+{
+    Console.Write($"{number} ");
+}
+
+int sum = 0;
+double average = 0;
+for (int i = 0; i < numbers.Length; i++)
+{
+    sum += numbers[i];
+}
+average = (double)sum / numbers.Length;
+Console.WriteLine($"Sum: {sum}, Average: {average}");
+
+try
+{
+    numbers[numbers.Length] = 60; // This will throw an IndexOutOfRangeException
+}
+catch (IndexOutOfRangeException ex)
+{
+    Console.WriteLine($"Exception caught: {ex.Message}");
+}
