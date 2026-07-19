@@ -2,45 +2,11 @@
 bin/
 obj/
 
-# Rider / Visual Studio / VS Code
+# IDE
 .vs/
 .idea/
 *.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-# Build results
-[Dd]ebug/
-[Rr]elease/
-x64/
-x86/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-
-# NuGet
-*.nupkg
-*.snupkg
-.nuget/
-packages/
-!packages/build/
-
-# Test / coverage
-[Tt]est[Rr]esult*/
-*.coverage
-*.coveragexml
-coverage*.json
-coverage*.xml
-coverage*.info
-
-# Rider
-*.dotCover
 
 # OS files
 .DS_Store
 Thumbs.db
-
-# User-specific / secrets
-*.userprefs
-secrets.json
-appsettings.*.local.json
