@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- Workaround for NETSDK1226 on .NET SDK 10.0.109: the SDK ships without
+         prune-package metadata for Microsoft.NETCore.App, which breaks restore.
+         Safe to remove once a fixed SDK is installed. -->
+    <AllowMissingPrunePackageData>true</AllowMissingPrunePackageData>
+  </PropertyGroup>
+
+</Project>
