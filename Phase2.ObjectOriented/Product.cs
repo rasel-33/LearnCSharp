@@ -1,6 +1,6 @@
 namespace Phase2.ObjectOriented;
 
-public class Product: IDiscountable
+public class Product : IDiscountable
 {
     // fields
     private string _name = "";
@@ -62,5 +62,24 @@ public class Product: IDiscountable
             throw new ArgumentOutOfRangeException(nameof(percentOff), "Percent off must be between 0 and 100.");
         }
         return Price * (1 - percentOff / 100);
+    }
+
+    public override string ToString()
+    {
+        return $"Product #{Id}: {Name} (${Price:F2})";
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is Product other)
+        {
+            return Id == other.Id && Name == other.Name && Price == other.Price;
+        }
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Id, Name, Price);
     }
 }

@@ -63,3 +63,14 @@ foreach (var payment in payments)
         Console.WriteLine($"Refund Amount: {r.Refund(30.00m)}");
     }
 }
+
+var a = new Product(5, "Tablet", 300.00m);
+var b = new Product(5, "Tablet", 300.00m);
+
+Console.WriteLine($"Are products a and b equal? {a.Equals(b)}"); // This will be true because they have the same ID, name, and price
+Console.WriteLine($"{a == b}"); // This will also be false because they are different instances
+
+HashSet<Product> productSet = new HashSet<Product>();
+productSet.Add(a);
+productSet.Add(b); 
+Console.WriteLine($"{productSet.Count}");

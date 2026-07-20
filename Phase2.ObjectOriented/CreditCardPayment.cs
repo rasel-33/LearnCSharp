@@ -11,6 +11,10 @@ public class CreditCardPayment : PaymentMethod, IRefundable
 
     public decimal Refund(decimal amount)
     {
-        return amount > Amount ? throw new ArgumentOutOfRangeException(nameof(amount), "Refund amount cannot exceed the original payment amount.") : amount;
+        if (amount <= 0 || amount > Amount)
+        {
+            throw new ArgumentOutOfRangeException(nameof(amount), "Refund amount cannot exceed the original payment amount.");
+        }
+        return amount;
     }
 }
