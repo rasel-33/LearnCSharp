@@ -1,6 +1,6 @@
 namespace Phase2.ObjectOriented;
 
-public class Product
+public class Product: IDiscountable
 {
     // fields
     private string _name = "";
@@ -53,5 +53,14 @@ public class Product
             }
             _price = value;
         }
+    }
+
+    public decimal GetDiscountedPrice(decimal percentOff)
+    {
+        if (percentOff < 0 || percentOff > 100)
+        {
+            throw new ArgumentOutOfRangeException(nameof(percentOff), "Percent off must be between 0 and 100.");
+        }
+        return Price * (1 - percentOff / 100);
     }
 }

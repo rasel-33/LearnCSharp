@@ -2,7 +2,7 @@ namespace Phase2.ObjectOriented;
 
 public class DigitalProduct : Product
 {
-    private readonly string _downloadUrl;
+    private readonly string _downloadUrl = "";
     public string DownloadUrl
     {
         get => _downloadUrl;

@@ -1,6 +1,6 @@
 namespace Phase2.ObjectOriented;
 
-public class IDiscountable
+public interface IDiscountable
 {
     decimal GetDiscountedPrice(decimal percentOff);
 }

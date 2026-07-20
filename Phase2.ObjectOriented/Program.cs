@@ -33,3 +33,33 @@ DigitalProduct digitalProduct = new DigitalProduct(4, "E-book", 20.00m, "https:/
 Console.WriteLine($"Digital Product Name: {digitalProduct.Name}");
 Console.WriteLine($"Digital Product Shipping Cost: {digitalProduct.ShippingCost}");
 Console.WriteLine($"Digital Product Price with Tax: {digitalProduct.PriceWithTax}");
+
+Product[] products = { product, product2, product3, digitalProduct };
+
+foreach (var prod in products)
+{
+    if (prod is DigitalProduct dp)
+    {
+        Console.WriteLine($"Name: {dp.Name}, Download URL: {dp.DownloadUrl}, Shipping Cost: {dp.ShippingCost}");
+    }
+    else
+    {
+        Console.WriteLine($"Name: {prod.Name}, Shipping Cost: {prod.ShippingCost}");
+    }
+}
+
+Console.WriteLine($"Discounted Price: {product.GetDiscountedPrice(10)}"); // 10% discount
+
+PaymentMethod[] payments = {
+    new CreditCardPayment(100.00m),
+    new CashPayment(50.00m)
+};
+
+foreach (var payment in payments)
+{
+    Console.WriteLine(payment.Summary());
+    if (payment is IRefundable r)
+    {
+        Console.WriteLine($"Refund Amount: {r.Refund(30.00m)}");
+    }
+}
