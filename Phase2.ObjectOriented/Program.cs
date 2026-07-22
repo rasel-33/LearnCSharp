@@ -67,10 +67,29 @@ foreach (var payment in payments)
 var a = new Product(5, "Tablet", 300.00m);
 var b = new Product(5, "Tablet", 300.00m);
 
-Console.WriteLine($"Are products a and b equal? {a.Equals(b)}"); // This will be true because they have the same ID, name, and price
-Console.WriteLine($"{a == b}"); // This will also be false because they are different instances
+Console.WriteLine($"Are products a and b equal? {a.Equals(b)}"); 
+Console.WriteLine($"{a == b}"); 
 
 HashSet<Product> productSet = new HashSet<Product>();
 productSet.Add(a);
 productSet.Add(b); 
 Console.WriteLine($"{productSet.Count}");
+
+Console.WriteLine(a.ToString());
+
+
+Money money1 = new Money(100.00m, "USD");
+Money money2 = new Money(100.00m, "USD");
+
+Console.WriteLine(a.Equals(b)); 
+Console.WriteLine($"{money1 == money2}");
+Console.WriteLine(money1);
+
+Money money3 = money1 with { Amount = 200.00m };
+Console.WriteLine(money3);
+Console.WriteLine(money1);
+
+Customer customer = new Customer(1, "John Doe", new Address("123 Main St", "Anytown", "12345"));
+Console.WriteLine(customer);
+customer.Address = customer.Address with { City = "Manchester" };
+Console.WriteLine(customer);

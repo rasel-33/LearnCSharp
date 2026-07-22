@@ -7,13 +7,14 @@ public class Product : IDiscountable
     private decimal _price;
     public static int TotalProductsCreated { get; private set; }
 
-    // constants
-    const decimal TaxRate = 0.15m;
+
 
 
     // properties
+    private readonly TaxCalculator _tax = new TaxCalculator();
+
     public int Id { get; init;}
-    public decimal PriceWithTax => Price * (1 + TaxRate); 
+    public decimal PriceWithTax => _tax.AddTax(Price);
     public bool IsExpensive => Price > 100m;
     public virtual decimal ShippingCost => 5.00m;
 

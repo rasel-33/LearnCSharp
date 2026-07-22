@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="Phase1.CliApplication/Phase1.CliApplication.csproj" />
   <Project Path="Phase1.Foundations/Phase1.Foundations.csproj" />
+  <Project Path="Phase2.FinalTask/Phase2.FinalTask.csproj" />
   <Project Path="Phase2.ObjectOriented/Phase2.ObjectOriented.csproj" />
 </Solution>
