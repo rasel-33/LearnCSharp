@@ -45,26 +45,14 @@ public abstract class Vehicle
         }
     }
 
-    public VehicleSize RequiredSize { get; init; }
-    public decimal HourlyRate => CalculateParkingRate.CalculateRate(this);
+    public abstract VehicleSize RequiredSize { get; }
+    public abstract decimal HourlyRate { get; }
     
 
-    public Vehicle(string licenseNo, string model, string color, VehicleSize requiredSize)
+    public Vehicle(string licenseNo, string model, string color)
     {
         LicenseNo = licenseNo;
         Model = model;
         Color = color;
-        RequiredSize = requiredSize;
-    }
-
-    public string GetVehicleType()
-    {
-        return RequiredSize switch
-        {
-            VehicleSize.Small => "Motorcycle",
-            VehicleSize.Medium => "Car",
-            VehicleSize.Large => "Truck",
-            _ => throw new ArgumentOutOfRangeException(nameof(RequiredSize), "Invalid vehicle size.")
-        };
     }
 }

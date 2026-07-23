@@ -1,6 +1,6 @@
 namespace Phase2.FinalTask;
 
-public class Spots
+public record Spots
 {
     public string SpotId { get; set; } = null!;
     public VehicleSize Size { get; set; }
