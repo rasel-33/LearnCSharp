@@ -3,9 +3,9 @@
 ## Current Position
 - **Stage:** A — C# Language Mastery
 - **Phase:** 1 — Core Language Foundations — ✅ **COMPLETE** (incl. capstone)
-- **Phase:** 2 — Object-Oriented C# — 🔄 **IN PROGRESS**. All ten concepts taught. **Capstone (`Phase2.FinalTask`, Parking Lot) ✅ COMPLETE & VERIFIED (2026-07-26) — runs end-to-end.**
-- **Topic:** Just finished the capstone. Full working program: `Space` (entity, `class`, `init` identity, `{ get; private set; }` + guarded `Occupy()`/`Free()`), `ParkingLot` composes `List<Space>`, `Park` = first-fit `Size >= RequiredSize`, `ExitVehicle` frees the space via LINQ `.First()`, `ParkingData` uses `DateTime? ExitTime` (sentinel removed). Verified output: motorcycle→A1, car→B1, truck→C1, exit fee $10.00 (5h×$2), 4th truck → "no spot" throw.
-- **▶ RESUME HERE (next session):** **spaced-rep quiz to clear quiz-debt** (abstract-class instantiation `CS0144`, `static` lost-update race, `override` vs `new`, interface-vs-virtual capability, `bool`+`out` articulation), then **Phase 2 is COMPLETE → Phase 3** (Generics, Delegates, LINQ, Collections). (Structs only mentioned, not drilled — cover briefly in Phase 3 or 4.)
+- **Phase:** 2 — Object-Oriented C# — ✅ **COMPLETE (2026-07-26)**. All ten concepts taught, capstone (`Phase2.FinalTask`, Parking Lot) built & verified end-to-end, quiz-debt cleared.
+- **Topic:** Capstone done — full working program: `Space` (entity, `class`, `init` identity, `{ get; private set; }` + guarded `Occupy()`/`Free()`), `ParkingLot` composes `List<Space>`, `Park` = first-fit `Size >= RequiredSize`, `ExitVehicle` frees the space via LINQ `.First()`, `ParkingData` uses `DateTime? ExitTime` (sentinel removed). Verified output: motorcycle→A1, car→B1, truck→C1, exit fee $10.00 (5h×$2), 4th truck → "no spot" throw.
+- **▶ RESUME HERE (next session):** **Phase 3 — The Power Tools** (Generics, Delegates, LINQ, Collections). He's already used `List<>`, `Dictionary<>`, and LINQ `.First()` incidentally — start generics from that. (Structs only mentioned, not drilled — cover briefly in Phase 3 or 4.) **Carry-over drill:** re-quiz the 3 shaky quiz mechanisms (lost-update race steps, `new`/hiding = declared type decides, interface-vs-virtual = compile vs runtime error) — concepts are there, wording isn't.
 
 ### 🅿️ Capstone status — `Phase2.FinalTask` (Parking Lot)
 **Builds clean (0 warnings). Does NOT run yet** (`Program.cs` is an empty infinite loop). Design was sketched on paper first (good), then reviewed over several rounds.
