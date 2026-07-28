@@ -39,3 +39,80 @@ foreach (int even in evens)
 {
     Console.WriteLine(even);
 }
+
+Func<int, int, int> multiply = (x, y) => x * y;
+Console.WriteLine($"Result of multiplying 3 and 4 is: {multiply(3, 4)}");
+
+Action<string> printMessage = message => Console.WriteLine(message.ToUpper());
+printMessage("Hello, Power Tools!");
+
+Predicate<int> isEven = number => number % 2 == 0;
+Console.WriteLine($"Is 7 even? {isEven(7)}");
+
+int[] numbers = { 1, 2, 3, 4 };
+Functional.ApplyToEach(numbers, n => n * n);
+Functional.ApplyToEach(numbers, n => n + 10);
+
+
+var actions = new List<Action>();
+for (int i = 0; i < 3; i++)
+{
+    int copy = i; // Capture the current value of i
+    actions.Add(() => Console.WriteLine($"Action {copy} executed")
+    );
+}
+
+numbers = new int[] { 3, 5, 6, 7 };
+
+foreach (var num in numbers)
+{
+    actions.Add(() => Console.WriteLine($"Number {num} processed"));
+}
+
+foreach (var a in actions)
+    a();
+
+int[] nums = { 5, 12, 8, 130, 44, 3 };
+var result = nums.Where(n => n > 10)   // keep numbers greater than 10: 12, 130, 44
+                 .Select(n => n * n); // square each number: 144, 16900, 1936
+
+Console.WriteLine(string.Join(", ", result)); // Output: 144, 16900, 1936
+
+Console.WriteLine(nums.First(num => num > 10)); // Output: 12
+Console.WriteLine(nums.FirstOrDefault(num => num > 1000)); // Output: 0
+
+
+var products = new List<Product>
+{
+    new("Laptop",  "Electronics", 1200m),
+    new("Mouse",   "Electronics", 25m),
+    new("Desk",    "Furniture",   300m),
+    new("Chair",   "Furniture",   150m),
+    new("Monitor", "Electronics", 400m),
+};
+
+var SelectedProducts = products.OrderByDescending(p => p.Price)
+                               .Select(p => p.Name);
+
+Console.WriteLine(string.Join(", ", SelectedProducts)); // Output: Laptop, Monitor, Desk, Chair, Mouse
+
+var groupedProducts = products.GroupBy(p => p.Category)
+                              .Select(g => new { Category = g.Key, Count = g.Count(), Average = g.Average(p => p.Price) });
+
+
+foreach (var group in groupedProducts)
+{
+    Console.WriteLine($"Category: {group.Category}, {group.Count} items, avg {group.Average:f3}");
+}
+
+var myNumber = new int[] { 5, 12, 8, 130, 44, 3 };
+myNumber.MyWhere(n => n > 10).ToList().ForEach(n => Console.WriteLine(n)); // Output: 12, 130, 44
+
+
+(int Count, int Sum, double average) GetStats(int[] nums)
+{
+    return (nums.Length, nums.Sum(), nums.Average());
+}
+
+var (count, sum, average) = GetStats(myNumber);
+Console.WriteLine($"Count: {count}, Sum: {sum}, Average: {average:f2}");
