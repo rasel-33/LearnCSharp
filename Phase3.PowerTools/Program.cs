@@ -116,3 +116,106 @@ myNumber.MyWhere(n => n > 10).ToList().ForEach(n => Console.WriteLine(n)); // Ou
 
 var (count, sum, average) = GetStats(myNumber);
 Console.WriteLine($"Count: {count}, Sum: {sum}, Average: {average:f2}");
+
+var path = Path.Combine(AppContext.BaseDirectory, "sales.csv");
+var sales = SalesLoader.LoadSales(path);
+Console.WriteLine($"Loaded {sales.Count} sales from CSV file.");
+
+decimal revenue = sales.Sum(s => s.Price * s.Quantity);
+string expensiveProduct = sales.MaxBy(s => s.Price)!.Product;
+Console.WriteLine($"Total revenue: {revenue:C}");
+Console.WriteLine($"Most expensive product: {expensiveProduct}");
+
+var allElectronicProducts = sales.Where(s => s.Category == "Electronics")
+    .OrderByDescending(s => s.Price)
+    .Select(s => s.Product)
+    .ToList();     
+
+Console.WriteLine("All electronic products:");
+foreach (var product in allElectronicProducts)
+{
+    Console.WriteLine(product);
+}
+
+var revenueByCategory = sales.GroupBy(s => s.Category)
+    .Select(g => new { Category = g.Key, Revenue = g.Sum(s => s.Price * s.Quantity) })
+    .ToList();
+
+Console.WriteLine("Revenue by category:");
+foreach (var group in revenueByCategory)
+{
+    Console.WriteLine($"{group.Category}: {group.Revenue:C}");
+}
+
+var averagePriceByCategory = sales.GroupBy(s => s.Category)
+    .Select(g => new { Category = g.Key, AveragePrice = g.Average(s => s.Price) })
+    .ToList();
+
+Console.WriteLine("Average price by category:");
+foreach (var group in averagePriceByCategory)
+{
+    Console.WriteLine($"{group.Category}: {group.AveragePrice:C}");
+}
+
+var categoryWithMostProducts = sales.GroupBy(s => s.Category)
+    .MaxBy(g => g.Count())?.Key;
+
+if (categoryWithMostProducts != null)
+{
+    Console.WriteLine($"Category with most products: {categoryWithMostProducts}");
+}
+
+var wellRevenue = sales.Select(s => new {Name = s.Product, Revenue = s.Price * s.Quantity})
+                        .Where(p => p.Revenue > 3000).OrderByDescending(p => p.Revenue).ToList();
+
+Console.WriteLine("Products with revenue greater than $3000:");
+foreach (var product in wellRevenue)
+{
+    Console.WriteLine($"{product.Name}: {product.Revenue:C}");
+}
+
+(int TotalUnits, decimal TotalRevenue) GetSummary(List<Sale> salesList)
+{
+    int totalUnits = salesList.Sum(s => s.Quantity);
+    decimal totalRevenue = salesList.Sum(s => s.Price * s.Quantity);
+    return (totalUnits, totalRevenue);
+}
+
+var (totalUnits, totalRevenue) = GetSummary(sales);
+Console.WriteLine($"Total units sold: {totalUnits}, Total revenue: {totalRevenue:C}");
+
+Button button = new Button();
+
+button.Clicked += (sender, e) =>
+{
+    Console.WriteLine(sender);
+    Console.WriteLine(e);
+    Console.WriteLine("Button was clicked!");
+};
+
+button.Clicked += (sender, e) =>
+{
+    Console.WriteLine("another")   ; 
+};
+
+button.Press();
+
+
+var bankAccount = new BankAccount(100m);
+bankAccount.Overdrawn += (sender, e) =>
+{
+    Console.WriteLine($"Warning: Account overdrawn! Current balance: {e}");
+};
+
+try
+{
+    bankAccount.Withdraw(50m); // Successful withdrawal
+    bankAccount.Withdraw(50m); // Successful withdrawal
+    bankAccount.Withdraw(2000m);
+}
+catch (InvalidOperationException ex)
+{
+    Console.WriteLine($"Error: {ex.Message}");
+}
+
+ // This will trigger the Overdrawn event and throw an exception
